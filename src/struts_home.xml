@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	<constant name="struts.objectFactory" value="spring" />
+	<!-- 使用国际编码UTF-8，防止提交表单乱码 -->
+	<constant name="struts.i18n.encoding" value="UTF-8"/>
+	
+	<package name="home" namespace="/" extends="struts-default">
+	
+		<!-- 跳转网站首页 -->
+		<action name="homeRedirect" class="userhomeAction" method="homeRedirect">
+			<result name="success">index.jsp</result>
+		</action>
+	
+		<!-- 跳转登录页面 -->
+		<action name="loginRedirect" class="userhomeAction" method="loginRedirect">
+			<result name="success">login.jsp</result>
+		</action>
+		
+		<!-- 会员登陆成功，跳转到网站首页 -->
+		<action name="userLogin" class="userhomeAction" method="userLogin">
+			<result name="success" type="redirectAction">homeRedirect</result>
+			<result name="error" type="redirectAction">loginRedirect</result>
+		</action>
+		
+		<!-- 会员登陆注销 -->
+		<action name="userLoginOut" class="userhomeAction" method="userLoginOut">
+			<result name="success" type="redirectAction">homeRedirect</result>
+		</action>
+		
+		<!-- 会员进入个人中心 -->
+		<action name="userCenter" class="userhomeAction" method="userCenter">
+			<result name="success">/WEB-INF/home/user_center.jsp</result>
+		</action>
+		
+		<!-- 会员修改个人资料编辑 -->
+		<action name="userUpdateHomeEdit" class="userhomeAction" method="userUpdateHomeEdit">
+			<result name="success">/WEB-INF/home/user_updateEdit.jsp</result>
+		</action>
+		
+		<!-- 会员修改个人资料 -->
+		<action name="userUpdateHome" class="userhomeAction" method="userUpdateHome">
+			<result name="success" type="redirectAction">loginRedirect</result>
+		</action>
+		
+		<!-- 会员修改个人头像编辑 -->
+		<action name="userUpdateHeadImgEdit" class="userhomeAction" method="userUpdateHeadImgEdit">
+			<result name="success">/WEB-INF/home/uploadHeadImg.jsp</result>
+		</action>
+		
+		<!-- 会员上传头像到服务器并显示 -->
+		<action name="postPhoto" class="userhomeAction" method="postPhoto"></action>
+		
+		<!-- 会员修改个人头像 -->
+		<action name="userUpdateHeadImg" class="userhomeAction" method="userUpdateHeadImg">
+			<result name="success" type="redirectAction">userCenter</result>
+		</action>
+		
+		<!-- 会员发布商品信息编辑 -->
+		<action name="productInsertHomeEdit" class="userhomeAction" method="productInsertHomeEdit">
+			<result name="success">/WEB-INF/home/product_insertEdit.jsp</result>
+		</action>
+		
+		<!-- 会员发布商品信息 -->
+		<action name="productInsertHome" class="userhomeAction" method="productInsertHome">
+			<result name="success" type="redirectAction">userCenter</result>
+		</action>
+		
+		<!-- 会员上传商品图像到服务器并显示 -->
+		<action name="postPhotoProduct" class="userhomeAction" method="postPhotoProduct"></action>
+		
+		<!-- 会员已发布的商品信息记录 -->
+		<action name="productInfoHome" class="userhomeAction" method="productInfoHome">
+			<result name="success">/WEB-INF/home/user_product.jsp</result>
+		</action>
+		
+		<!-- 商品信息详情 -->
+		<action name="productDetail" class="userhomeAction" method="productDetail">
+			<result name="success">/WEB-INF/home/product_detail.jsp</result>
+		</action>
+		
+		<!-- 遍历8个显示商品 -->
+		<action name="productInfo" class="userhomeAction" method="productInfo">
+			<result name="success">/WEB-INF/home/product_limit.jsp</result>
+		</action>
+		
+		<!-- 遍历全部分页显示商品 -->
+		<action name="productAllPaging" class="userhomeAction" method="productAllPaging">
+			<result name="success">/WEB-INF/home/product_page.jsp</result>
+		</action>
+		
+		<!-- 遍历显示新闻资讯 -->
+		<action name="articleInfo" class="articlehomeAction" method="articleInfo">
+			<result name="success">/WEB-INF/home/news_limit.jsp</result>
+		</action>
+		
+		<!-- 详情查看新闻资讯 -->
+		<action name="articleDetail" class="articlehomeAction" method="articleDetail">
+			<result name="success">/WEB-INF/home/news_detail.jsp</result>
+		</action>
+		
+		<!-- 遍历显示友情链接 -->
+		<action name="linkInfo" class="linkhomeAction" method="linkInfo">
+			<result name="success">/WEB-INF/home/links_limit.jsp</result>
+		</action>
+		
+		<!-- 遍历显示分类栏目 -->
+		<action name="catalogInfo" class="cataloghomeAction" method="catalogInfo">
+			<result name="success">/WEB-INF/home/catalogs_limit.jsp</result>
+		</action>
+		
+		<!-- 遍历显示分类栏目 -->
+		<action name="catalogSelect" class="cataloghomeAction" method="catalogSelect">
+			<result name="success">/WEB-INF/home/catalogs_select.jsp</result>
+		</action>
+		
+		<!-- 出标 -->
+		<action name="bidInsert" class="ordershomeAction" method="bidInsert">
+			<result name="success" type="redirectAction">productDetail</result>
+		</action>
+		
+		<!-- 关于该商品的出价记录 -->
+		<action name="ordersProductInfo" class="ordershomeAction" method="ordersProductInfo">
+			<result name="success">/WEB-INF/home/ordersProductInfo.jsp</result>
+		</action>
+		
+		<!-- 关于该用户的出价记录 -->
+		<action name="ordersUserInfo" class="ordershomeAction" method="ordersUserInfo">
+			<result name="success">/WEB-INF/home/ordersUserInfo.jsp</result>
+		</action>
+		
+		<!-- 关于该用户的成功出价记录 -->
+		<action name="ordersUsertSuccess" class="ordershomeAction" method="ordersUsertSuccess">
+			<result name="success">/WEB-INF/home/ordersUsertSuccess.jsp</result>
+		</action>
+		
+		<!-- 中标，设置fkstatus状态为1 -->
+		<action name="ordersFkstatus" class="ordershomeAction" method="ordersFkstatus"></action>
+		
+		<!-- 支付 -->
+		<action name="ToPay" class="ordershomeAction" method="ToPay">
+			<result name="success" type="redirectAction">ordersUsertSuccess</result>
+		</action>
+
+	</package>
+</struts>

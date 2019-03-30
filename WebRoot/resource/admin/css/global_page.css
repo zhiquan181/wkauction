@@ -1,0 +1,6 @@
+@charset "utf-8";
+.paging_pager{width:100%;height:;background-color: ;margin:auto;clear:both;border-top:1px solid #e2e2e2;}
+.paging_pager .paging_pager_bar{width:;height:;background-color: ;margin: auto;padding:20px 0;text-align:center;}
+.paging_pager .paging_pager_bar .pager_commom{width:40px;height:40px;color:rgb(54,127,169);display:inline-block;border:1px solid rgb(54,127,169);border-radius:2px;font-size:15px;text-align:center;line-height:38px;}
+.paging_pager .paging_pager_bar .pager_total{width:40px;height:40px;padding: 0 20px;color:rgb(54,127,169);display:inline-block;border:1px solid #bbb;border-radius:2px;font-size:15px;text-align:center;line-height:38px;cursor:text;}
+.paging_pager .paging_pager_bar .pager_commom_not{cursor:not-allowed;color:#bbb;border:1px solid #bbb;}

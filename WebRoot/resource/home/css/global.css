@@ -1,0 +1,32 @@
+@charset "utf-8";
+*{margin:0;padding:0;}
+
+.navbar{width:100%;min-width:1040px;height:;display:block;margin:auto;background-color:#fafafa;}
+.navbar ul{width:1040px;display:block;margin:auto;text-align:right;}
+.navbar ul li{display:inline-block;padding:8px 8px;font-size:13px;}
+.navbar ul li a{color:#888;text-decoration:none;}
+
+.header{width:100%;min-width:1040px;margin:auto;height:70px;background:#fff;box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.1);clear:both;}
+.header_box{width:1040px;height:70px;margin:auto;position:relative;}
+.header_box_left{width:250px;position:absolute;top:0;clear:both;}
+.header_box_left a{display:inline-block;float:left;}
+.header_box_left img{width:104px;height:70px;}
+.header_box_left_span{display:inline-block;line-height:70px;float:left;margin:0 10px;padding:0 10px;cursor:Auto;font-size:14px;position:relative;bottom:0px;z-index:10;}
+.header_box_left_span:hover{color:rgb(0,174,239);}
+.header_box_left_span_ul{width:1040px;min-height:351px;display:none;background:rgba(255,255,255,.92);position: absolute;top:69px;left:-114px;z-index:9;box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.2);}
+.header_box_middle{width:350px;height:70px;position:absolute;left:0;right:0;top:0;bottom:0;margin:auto;}
+.header_box_middle input{border-width: 1px;border-color: #eee;border-image: none;outline:none; border-style: solid;}
+
+.header_box_right{width:;height:70px;position:absolute;right:0;}
+.header_box_right ul li{float:left;list-style:none;line-height:70px;padding:0 15px 0 15px;}
+.header_box_right ul li a{text-decoration:none;color:#444;font-size:14px;}
+.header_box_right ul li a:hover{color:rgb(0,174,239)}
+.search{width:330px;height:40px;position:relative;top:15px;outline:none;text-indent:1em;border-radius:330px;}
+.submit{width:38px;height:38px;border-radius:38px;position:absolute;right:22px;top:16px;font-size:13px;background:rgb(0,174,239);border:0;color:#fff;cursor:pointer;transition:all ease .3s;}
+.submit:hover{background:rgb(0,137,200);}
+
+.foot{width:100%;min-width:1040px;height:;background:#222;padding:40px 0;clear:both;}
+.foot div{color:#fff;}
+.foot div p>a,.foot div p>span{height:;color:#fff;line-height:24px;font-size:16px;}
+.foot div>a{color:#fff;transition:ease .3s;font-size:13px;line-height:10px;}
+.foot div>a:hover{color:orange;}

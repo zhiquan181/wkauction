@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	<constant name="struts.objectFactory" value="spring" />
+	<!-- 使用国际编码UTF-8，防止提交表单乱码 -->
+	<constant name="struts.i18n.encoding" value="UTF-8"/>
+	
+	<package name="admin" namespace="/" extends="struts-default">
+	
+		<!-- 跳转后台登录页面 -->
+		<action name="adminRedirect" class="adminAction" method="adminRedirect">
+			<result name="success">/WEB-INF/admin/admin.jsp</result>
+		</action>
+		
+		<!-- 跳转后台登陆成功页面 -->
+		<action name="adminManager" class="adminAction" method="adminManager">
+			<result name="success">/WEB-INF/admin/index.jsp</result>
+		</action>
+		
+		<!-- 后台登录 -->
+		<action name="alogin" class="adminAction" method="dologin">
+			<result name="success" type="redirectAction">adminManager</result>
+			<result name="error" type="redirectAction">adminRedirect</result>
+		</action>
+		
+		<!-- 图片验证码 -->
+		<action name="createImage" class="createImageAction" method="createImage">
+			<result name="success" type="stream">
+				<param name="contentType">image/jpeg</param>
+				<param name="inputName">inputStream</param>
+			</result>
+		</action>
+		
+		<!-- 后台注销 -->
+		<action name="alogout" class="adminAction" method="dologout">
+			<result name="success">/WEB-INF/admin/admin.jsp</result>
+		</action>
+		
+		<!-- 系统管理员分页列表 -->
+		<action name="auserListPaging" class="adminAction" method="auserListPaging">
+			<result name="success">/WEB-INF/admin/auser_list.jsp</result>
+		</action>
+		
+		<!-- 系统管理员新增编辑 -->
+		<action name="auserInsertEdit" class="adminAction" method="auserInsertEdit">
+			<result name="success">/WEB-INF/admin/auser_insertEdit.jsp</result>
+		</action>
+		
+		<!-- 系统管理员新增 -->
+		<action name="auserInsert" class="adminAction" method="auserInsert">
+			<result name="success" type="redirectAction">auserListPaging</result>
+		</action>
+		
+		<!-- 系统管理员删除 -->
+		<action name="auserDelete" class="adminAction" method="auserDelete">
+			<result name="success" type="redirectAction">auserListPaging</result>
+		</action>
+		
+		<!-- 系统管理员修改编辑 -->
+		<action name="auserUpdateEdit" class="adminAction" method="auserUpdateEdit">
+			<result name="success">/WEB-INF/admin/auser_updateEdit.jsp</result>
+		</action>
+		
+		<!-- 系统管理员修改 -->
+		<action name="auserUpdate" class="adminAction" method="auserUpdate">
+			<result name="success" type="redirectAction">auserListPaging</result>
+		</action>
+		
+		<!-- 系统管理员查询 -->
+		<action name="auserQuery" class="adminAction" method="auserQuery">
+			<result name="success">/WEB-INF/admin/auser_query.jsp</result>
+		</action>
+		
+		<!-- 友情链接分页列表 -->
+		<action name="linkListPaging" class="linkAction" method="linkListPaging">
+			<result name="success">/WEB-INF/admin/link_list.jsp</result>
+		</action>
+		
+		<!-- 友情链接新增编辑 -->
+		<action name="linkInsertEdit" class="linkAction" method="linkInsertEdit">
+			<result name="success">/WEB-INF/admin/link_insertEdit.jsp</result>
+		</action>
+		
+		<!-- 友情链接新增 -->
+		<action name="linkInsert" class="linkAction" method="linkInsert">
+			<result name="success" type="redirectAction">linkListPaging</result>
+		</action>
+		
+		<!-- 友情链接删除 -->
+		<action name="linkDelete" class="linkAction" method="linkDelete">
+			<result name="success" type="redirectAction">linkListPaging</result>
+		</action>
+		
+		<!-- 友情链接修改编辑 -->
+		<action name="linkUpdateEdit" class="linkAction" method="linkUpdateEdit">
+			<result name="success">/WEB-INF/admin/link_updateEdit.jsp</result>
+		</action>
+		
+		<!-- 友情链接修改 -->
+		<action name="linkUpdate" class="linkAction" method="linkUpdate">
+			<result name="success" type="redirectAction">linkListPaging</result>
+		</action>
+		
+		<!-- 友情链接查询 -->
+		<action name="linkQuery" class="linkAction" method="linkQuery">
+			<result name="success">/WEB-INF/admin/link_query.jsp</result>
+		</action>
+		
+		<!-- 新闻资讯分页列表 -->
+		<action name="articleListPaging" class="articleAction" method="articleListPaging">
+			<result name="success">/WEB-INF/admin/article_list.jsp</result>
+		</action>
+		
+		<!-- 新闻资讯新增编辑 -->
+		<action name="articleInsertEdit" class="articleAction" method="articleInsertEdit">
+			<result name="success">/WEB-INF/admin/article_insertEdit.jsp</result>
+		</action>
+		
+		<!-- 新闻资讯新增 -->
+		<action name="articleInsert" class="articleAction" method="articleInsert">
+			<result name="success" type="redirectAction">articleListPaging</result>
+		</action>
+		
+		<!-- 新闻资讯删除 -->
+		<action name="articleDelete" class="articleAction" method="articleDelete">
+			<result name="success" type="redirectAction">articleListPaging</result>
+		</action>
+		
+		<!-- 新闻资讯修改编辑 -->
+		<action name="articleUpdateEdit" class="articleAction" method="articleUpdateEdit">
+			<result name="success">/WEB-INF/admin/article_updateEdit.jsp</result>
+		</action>
+		
+		<!-- 新闻资讯修改 -->
+		<action name="articleUpdate" class="articleAction" method="articleUpdate">
+			<result name="success" type="redirectAction">articleListPaging</result>
+		</action>
+		
+		<!-- 新闻资讯查询 -->
+		<action name="articleQuery" class="articleAction" method="articleQuery">
+			<result name="success">/WEB-INF/admin/article_query.jsp</result>
+		</action>
+		
+		<!-- 分类管理分页列表 -->
+		<action name="catalogListPaging" class="catalogAction" method="catalogListPaging">
+			<result name="success">/WEB-INF/admin/catalog_list.jsp</result>
+		</action>
+		
+		<!-- 分类管理新增编辑 -->
+		<action name="catalogInsertEdit" class="catalogAction" method="catalogInsertEdit">
+			<result name="success">/WEB-INF/admin/catalog_insertEdit.jsp</result>
+		</action>
+		
+		<!-- 分类管理新增 -->
+		<action name="catalogInsert" class="catalogAction" method="catalogInsert">
+			<result name="success" type="redirectAction">catalogListPaging</result>
+		</action>
+		
+		<!-- 分类管理删除 -->
+		<action name="catalogDelete" class="catalogAction" method="catalogDelete">
+			<result name="success" type="redirectAction">catalogListPaging</result>
+		</action>
+		
+		<!-- 分类管理修改编辑 -->
+		<action name="catalogUpdateEdit" class="catalogAction" method="catalogUpdateEdit">
+			<result name="success">/WEB-INF/admin/catalog_updateEdit.jsp</result>
+		</action>
+		
+		<!-- 分类管理修改 -->
+		<action name="catalogUpdate" class="catalogAction" method="catalogUpdate">
+			<result name="success" type="redirectAction">catalogListPaging</result>
+		</action>
+		
+		<!-- 分类管理查询 -->
+		<action name="catalogQuery" class="catalogAction" method="catalogQuery">
+			<result name="success">/WEB-INF/admin/catalog_query.jsp</result>
+		</action>
+		
+		<!-- 拍卖会员分页列表 -->
+		<action name="userListPaging" class="userAction" method="userListPaging">
+			<result name="success">/WEB-INF/admin/user_list.jsp</result>
+		</action>
+		
+		<!-- 拍卖会员新增编辑 -->
+		<action name="userInsertEdit" class="userAction" method="userInsertEdit">
+			<result name="success">/WEB-INF/admin/user_insertEdit.jsp</result>
+		</action>
+		
+		<!-- 拍卖会员新增 -->
+		<action name="userInsert" class="userAction" method="userInsert">
+			<result name="success" type="redirectAction">userListPaging</result>
+		</action>
+		
+		<!-- 拍卖会员删除 -->
+		<action name="userDelete" class="userAction" method="userDelete">
+			<result name="success" type="redirectAction">userListPaging</result>
+		</action>
+		
+		<!-- 拍卖会员修改编辑 -->
+		<action name="userUpdateEdit" class="userAction" method="userUpdateEdit">
+			<result name="success">/WEB-INF/admin/user_updateEdit.jsp</result>
+		</action>
+		
+		<!-- 拍卖会员修改 -->
+		<action name="userUpdate" class="userAction" method="userUpdate">
+			<result name="success" type="redirectAction">userListPaging</result>
+		</action>
+		
+		<!-- 拍卖会员查询 -->
+		<action name="userQuery" class="userAction" method="userQuery">
+			<result name="success">/WEB-INF/admin/user_query.jsp</result>
+		</action>
+		
+		<!-- 商品管理分页列表 -->
+		<action name="goodsListPaging" class="goodsAction" method="goodsListPaging">
+			<result name="success">/WEB-INF/admin/goods_list.jsp</result>
+		</action>
+		
+		<!-- 商品管理查询 -->
+		<action name="goodsQuery" class="goodsAction" method="goodsQuery">
+			<result name="success">/WEB-INF/admin/goods_query.jsp</result>
+		</action>
+		
+		<!-- 订单管理分页列表 -->
+		<action name="ordersListPaging" class="ordersAction" method="ordersListPaging">
+			<result name="success">/WEB-INF/admin/orders_list.jsp</result>
+		</action>
+		
+		<!-- 订单管理查询 -->
+		<action name="ordersQuery" class="ordersAction" method="ordersQuery">
+			<result name="success">/WEB-INF/admin/orders_query.jsp</result>
+		</action>
+
+	</package>
+</struts>

@@ -1,0 +1,3 @@
+eclipse.preferences.version=1
+validator.Checked=WebRoot/resource/admin/js/jquery-3.3.1.min.js,WebRoot/resource/home/js/swiper.min.js,WebRoot/resource/home/js/jquery-3.3.1.min.js
+validator.Unchecked=

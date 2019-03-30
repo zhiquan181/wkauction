@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	<constant name="struts.objectFactory" value="spring" />
+	<!-- 使用国际编码UTF-8，防止提交表单乱码 -->
+	<constant name="struts.i18n.encoding" value="UTF-8"/>
+	
+	<package name="struts" namespace="/" extends="struts-default">
+		<!-- 全局设置错误页面 -->
+		<global-results>
+			<result name="error">/error.jsp</result>
+		</global-results>		
+	</package>
+	
+	<include file="struts_admin.xml"/>
+	
+	<include file="struts_home.xml"/>
+</struts>    
