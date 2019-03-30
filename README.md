@@ -15,6 +15,7 @@ Navicat for Mysql可视化软件等。<br/>
 
 技术：<br/>
 采用Java EE的SSH框架，基本的CURD操作和传参数,前端使用Jquery+Ajax+Vue<br/>
+使用了Mysql触发器，事件监听拍品是否超过截至日期，超过则0，默认为1，超过后就不能拍卖了。<br/>
 
 <br/>
 
